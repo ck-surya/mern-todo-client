@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-require('dotenv').config();
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+const API_URL = import.meta.env.REACT_APP_API_URL || 'http://localhost:5000/api';
 
 export const useTasks = () => {
   const [tasks, setTasks] = useState([]);
@@ -41,27 +40,19 @@ export const useTasks = () => {
       setError(err);
     }
   };
+
   const editTask = async (taskId, updatedTask) => {
     try {
-      // Make PUT request to update the task
       await axios.put(`${API_URL}/tasks/${taskId}`, updatedTask);
-
-      // Update the tasks state with the updated task
-      const updatedTasks = tasks.map(task => {
-        // If the task ID matches the edited task's ID, return the updated task
-        // Otherwise, return the original task
-        return task._id === taskId ? updatedTask : task;
-      });
-
-      // Set the updated tasks array as the new state
+      const updatedTasks = tasks.map(task => 
+        task._id === taskId ? updatedTask : task
+      );
       setTasks(updatedTasks);
     } catch (err) {
-      // Handle errors
       console.error('Error editing task:', err);
       setError(err);
     }
   };
-
 
   return { tasks, loading, error, addTask, deleteTask, editTask };
 };
