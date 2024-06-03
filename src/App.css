@@ -1,0 +1,115 @@
+.task-board {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.task-board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.task-board-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.task-board-body {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-task-form {
+  display: flex;
+  flex-direction: column; /* Display inputs in a single column */
+  gap: 10px;
+}
+
+.add-task-form input,
+.add-task-form select,
+.add-task-form button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%; /* Make inputs take full width */
+}
+
+.add-task-button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.task-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.task-table-header {
+  padding: 10px;
+  background-color: #f4f4f4;
+  text-align: left;
+}
+
+.task-row {
+  border-bottom: 1px solid #ddd;
+}
+
+.task-cell {
+  padding: 10px;
+}
+
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.status-badge.not-started {
+  background-color: #ff5722;
+}
+
+.status-badge.in-progress {
+  background-color: #ff9800;
+}
+
+.status-badge.completed {
+  background-color: #4caf50;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.delete-icon {
+  width: 20px;
+  height: 20px;
+  color: #ff5722;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .task-board-body {
+    padding: 15px;
+  }
+
+  .task-board-title {
+    font-size: 20px;
+  }
+
+  .add-task-form input,
+  .add-task-form select,
+  .add-task-form button {
+    width: auto; /* Reset width for inputs to allow them to shrink */
+  }
+}
