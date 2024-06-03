@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const API_URL = import.meta.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 export const useTasks = () => {
   const [tasks, setTasks] = useState([]);
@@ -11,6 +11,7 @@ export const useTasks = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
+        console.log('API_URL:', API_URL);
         const response = await axios.get(`${API_URL}/tasks`);
         setTasks(response.data);
       } catch (err) {
